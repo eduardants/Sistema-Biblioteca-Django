@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Sistema Biblioteca</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<header>
+
+    <div class="topo">
+
+        <a href="/" class="logo">
+            📚 Sistema Biblioteca
+        </a>
+
+        <nav>
+            <a href="/" class="ativo">Início</a>
+
+            <a href="/usuarios/">
+                Usuários
+            </a>
+
+            <a href="/livros/">
+                Livros
+            </a>
+
+            <a href="/emprestimos/">
+                Empréstimos
+            </a>
+        </nav>
+
+    </div>
+
+    <div class="apresentacao">
+
+        <h1>Bem-vindos à Biblioteca</h1>
+
+        <p>
+            Sistema de gerenciamento da biblioteca
+        </p>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <h2>O que você deseja acessar?</h2>
+
+    <div class="menu">
+
+        <a href="/usuarios/" class="card">
+
+            <div class="icone">
+                👤
+            </div>
+
+            <h3>Usuários</h3>
+
+            <p>
+                Gerenciar usuários cadastrados
+                na biblioteca.
+            </p>
+
+            <span class="seta">→</span>
+
+        </a>
+
+
+        <a href="/livros/" class="card">
+
+            <div class="icone">
+                📚
+            </div>
+
+            <h3>Livros</h3>
+
+            <p>
+                Gerenciar o acervo de livros
+                da biblioteca.
+            </p>
+
+            <span class="seta">→</span>
+
+        </a>
+
+
+        <a href="/emprestimos/" class="card">
+
+            <div class="icone">
+                🔄
+            </div>
+
+            <h3>Empréstimos</h3>
+
+            <p>
+                Controlar empréstimos e
+                devoluções de livros.
+            </p>
+
+            <span class="seta">→</span>
+
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    © 2026 Sistema Biblioteca
+
+</footer>
+
+</body>
+
+</html>

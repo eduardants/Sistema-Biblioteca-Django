@@ -1,0 +1,314 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Livros - Biblioteca</title>
+
+    <link rel="stylesheet" href="{% static 'css/livros.css' %}">
+
+</head>
+
+<body>
+
+
+<!-- =========================================
+     CABEÇALHO
+========================================= -->
+
+<header>
+
+    <div class="logo">
+        📚 Biblioteca
+    </div>
+
+    <nav>
+
+        <a href="{% url 'index' %}">
+            Início
+        </a>
+
+        <a href="/usuarios/">
+            Usuários
+        </a>
+
+        <a href="/livros/" class="ativo">
+            Livros
+        </a>
+
+        <a href="/emprestimos/">
+            Empréstimos
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================
+     CONTEÚDO
+========================================= -->
+
+<main>
+
+    <section class="titulo">
+
+        <h1>
+            Livros
+        </h1>
+
+        <p>
+            Consulte os livros disponíveis na biblioteca.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         MENSAGEM DE ERRO
+    ========================================= -->
+
+    {% if erro %}
+
+        <div class="erro">
+            ⚠️ {{ erro }}
+        </div>
+
+    {% endif %}
+
+
+    <!-- =========================================
+         TABELA
+    ========================================= -->
+
+    <section class="card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Título
+                    </th>
+
+                    <th>
+                        Autor
+                    </th>
+
+                    <th>
+                        ISBN
+                    </th>
+
+                    <th>
+                        Ano
+                    </th>
+
+                    <th>
+                        Total
+                    </th>
+
+                    <th>
+                        Emprestados
+                    </th>
+
+                    <th>
+                        Disponíveis
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Ações
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for livro in livros %}
+
+                <tr>
+
+                    <!-- TÍTULO -->
+
+                    <td class="titulo-livro">
+                        📖 {{ livro.titulo }}
+                    </td>
+
+
+                    <!-- AUTOR -->
+
+                    <td>
+                        {{ livro.autor }}
+                    </td>
+
+
+                    <!-- ISBN -->
+
+                    <td>
+                        {{ livro.isbn }}
+                    </td>
+
+
+                    <!-- ANO -->
+
+                    <td>
+                        {{ livro.ano_publicacao }}
+                    </td>
+
+
+                    <!-- TOTAL -->
+
+                    <td>
+                        {{ livro.quantidade_disponivel }}
+                    </td>
+
+
+                    <!-- EMPRESTADOS -->
+
+                    <td>
+
+                        <span class="quantidade emprestados">
+
+                            {{ livro.quantidade_emprestada }}
+
+                        </span>
+
+                    </td>
+
+
+                    <!-- DISPONÍVEIS -->
+
+                    <td>
+
+                        <span class="quantidade disponiveis">
+
+                            {{ livro.disponivel }}
+
+                        </span>
+
+                    </td>
+
+
+                    <!-- STATUS -->
+
+                    <td>
+
+                        {% if livro.disponivel > 0 %}
+
+                            <span class="status disponivel">
+                                Disponível
+                            </span>
+
+                        {% else %}
+
+                            <span class="status indisponivel">
+                                Indisponível
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- AÇÕES -->
+
+                    <td class="acoes">
+
+
+                        <!-- RETIRAR -->
+
+                        {% if livro.disponivel > 0 %}
+
+                            <a
+                                href="{% url 'retirar_livro' livro.id %}"
+                                class="btn retirar"
+                                onclick="return confirm('Deseja retirar este livro?');">
+
+                                📤 Retirar
+
+                            </a>
+
+                        {% else %}
+
+                            <span class="sem-exemplar">
+                                Sem exemplares
+                            </span>
+
+                        {% endif %}
+
+
+                        <!-- DEVOLVER -->
+
+                        {% if livro.quantidade_emprestada > 0 %}
+
+                            <a
+                                href="{% url 'devolver_livro' livro.id %}"
+                                class="btn devolver"
+                                onclick="return confirm('Deseja devolver este livro?');">
+
+                                📥 Devolver
+
+                            </a>
+
+                        {% endif %}
+
+
+                    </td>
+
+                </tr>
+
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="9" class="vazio">
+
+                        Nenhum livro cadastrado.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     RODAPÉ
+========================================= -->
+
+<footer>
+
+    <p>
+        Sistema de Biblioteca © 2026
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Usuários - Biblioteca</title>
+
+    <link rel="stylesheet" href="{% static 'css/usuarios.css' %}">
+</head>
+<header>
+
+    <div class="logo">
+        📚 Biblioteca
+    </div>
+
+    <nav>
+        <a href="{% url 'index' %}">
+    Início
+</a>
+
+        <a href="/usuarios/" class="ativo">Usuários</a>
+
+        <a href="/livros/">
+            Livros
+        </a>
+
+        <a href="/emprestimos/">
+            Empréstimos
+        </a>
+    </nav>
+
+</header>
+<body>
+
+    <h1>Usuários da Biblioteca</h1>
+
+    <hr>
+
+    {% if usuarios %}
+
+        <table border="1">
+
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Data de cadastro</th>
+                <th>Status</th>
+                <th>Ação</th>
+            </tr>
+
+            {% for usuario in usuarios %}
+
+                <tr>
+
+                    <td>{{ usuario.nome }}</td>
+
+                    <td>{{ usuario.email }}</td>
+
+                    <td>{{ usuario.telefone }}</td>
+
+                    <td>{{ usuario.data_cadastro }}</td>
+
+                    <td>
+                        {% if usuario.ativo %}
+                            Ativo
+                        {% else %}
+                            Inativo
+                        {% endif %}
+                    </td>
+
+                    <td>
+
+                        {% if usuario.ativo %}
+
+                            <a href="{% url 'desativar_usuario' usuario.id %}">
+                                Desativar
+                            </a>
+
+                        {% else %}
+
+                            <a href="{% url 'ativar_usuario' usuario.id %}">
+                                Ativar
+                            </a>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+    {% else %}
+
+        <p>Nenhum usuário cadastrado.</p>
+
+    {% endif %}
+
+</body>
+
+</html>
+

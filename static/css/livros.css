@@ -1,0 +1,537 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #061525;
+    color: #eaf4fb;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+header {
+    background: #04111f;
+
+    color: white;
+
+    padding: 20px 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #0c2d49;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+
+    color: #ffffff;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================
+   NAVEGAÇÃO
+========================================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+nav a {
+    color: #91a8ba;
+
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: #092842;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+nav a.ativo {
+    background: #0b4f82;
+
+    color: #ffffff;
+
+    box-shadow: 0 5px 15px rgba(11, 79, 130, 0.4);
+}
+
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+main {
+    width: 90%;
+
+    max-width: 1400px;
+
+    margin: 45px auto;
+
+    flex: 1;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.titulo {
+    margin-bottom: 28px;
+}
+
+.titulo h1 {
+    color: #ffffff;
+
+    font-size: 34px;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -0.7px;
+}
+
+.titulo p {
+    color: #91a8ba;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   MENSAGEM DE ERRO
+========================================= */
+
+.erro {
+    background: #421c22;
+
+    color: #ff9ca7;
+
+    border-left: 4px solid #e11d48;
+
+    padding: 15px 20px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    font-weight: bold;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================
+   CARD DA TABELA
+========================================= */
+
+.card {
+    background: #081c30;
+
+    border: 1px solid #0d3554;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+    overflow-x: auto;
+}
+
+
+/* =========================================
+   TABELA
+========================================= */
+
+table {
+    width: 100%;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    min-width: 900px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+
+/* CABEÇALHO */
+
+thead {
+    background: #041525;
+
+    color: #ffffff;
+}
+
+th {
+    padding: 16px 14px;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    color: #dff2ff;
+
+    font-weight: bold;
+
+    border-bottom: 1px solid #0d3554;
+}
+
+
+/* CANTOS DO CABEÇALHO */
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+
+/* CÉLULAS */
+
+td {
+    padding: 17px 14px;
+
+    border-bottom: 1px solid #0d2b45;
+
+    font-size: 14px;
+
+    color: #c2d3df;
+}
+
+
+/* LINHAS */
+
+tbody tr {
+    background: #081c30;
+
+    transition: all 0.25s ease;
+}
+
+tbody tr:hover {
+    background: #0b2942;
+
+    box-shadow: inset 3px 0 0 #1683c7;
+}
+
+
+/* ÚLTIMA LINHA */
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   TÍTULO DO LIVRO
+========================================= */
+
+.titulo-livro {
+    font-weight: bold;
+
+    color: #63b8ec;
+
+    transition: 0.2s ease;
+}
+
+.titulo-livro:hover {
+    color: #8bd3ff;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* DISPONÍVEL */
+
+.status.disponivel {
+    background: #073d2b;
+
+    color: #5ee7b2;
+
+    border: 1px solid #0b6346;
+}
+
+
+/* INDISPONÍVEL */
+
+.status.indisponivel {
+    background: #421c22;
+
+    color: #ff8e9b;
+
+    border: 1px solid #6b2832;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.acoes {
+    white-space: nowrap;
+}
+
+
+/* BOTÃO PADRÃO */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    padding: 9px 14px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-right: 5px;
+
+    transition: all 0.25s ease;
+}
+
+
+/* RETIRAR */
+
+.btn.retirar {
+    background: #0b5d91;
+
+    color: #ffffff;
+
+    box-shadow: 0 4px 12px rgba(11, 93, 145, 0.25);
+}
+
+.btn.retirar:hover {
+    background: #0d75b5;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 7px 18px rgba(13, 117, 181, 0.35);
+}
+
+
+/* DEVOLVER */
+
+.btn.devolver {
+    background: #092f4d;
+
+    color: #63b8ec;
+
+    border: 1px solid #14547c;
+}
+
+.btn.devolver:hover {
+    background: #0d405f;
+
+    color: #8bd3ff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   SEM EXEMPLARES
+========================================= */
+
+.sem-exemplar {
+    display: inline-block;
+
+    background: #10283c;
+
+    color: #829bad;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    border: 1px solid #193b55;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-right: 5px;
+}
+
+
+/* =========================================
+   TABELA VAZIA
+========================================= */
+
+.vazio {
+    text-align: center;
+
+    padding: 55px;
+
+    color: #71899b;
+
+    font-size: 15px;
+
+    background: #081c30;
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+footer {
+    background: #04111f;
+
+    color: #71899b;
+
+    text-align: center;
+
+    padding: 22px;
+
+    margin-top: 30px;
+
+    font-size: 13px;
+
+    border-top: 1px solid #0c2d49;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    table {
+        min-width: 900px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 16px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    nav a {
+        padding: 8px 11px;
+
+        font-size: 12px;
+    }
+
+    main {
+        margin: 30px auto;
+    }
+
+    .titulo h1 {
+        font-size: 27px;
+    }
+
+    .titulo p {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 10px;
+
+        border-radius: 14px;
+    }
+}

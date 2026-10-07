@@ -1,0 +1,422 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background: #061525;
+
+    color: #eaf4fb;
+
+    padding: 40px;
+
+    position: relative;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   EFEITO DE LUZ NO FUNDO
+========================================= */
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 35px;
+    margin-bottom: 35px;
+
+    background: #04111f;
+
+    border: 1px solid #0c2d49;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.30),
+        0 0 20px rgba(22, 131, 199, 0.05);
+}
+
+
+/* LOGO */
+
+.logo {
+    color: #ffffff;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================
+   NAVEGAÇÃO
+========================================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+nav a {
+    color: #91a8ba;
+
+    text-decoration: none;
+
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition: all 0.25s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+
+    background: #092842;
+
+    transform: translateY(-1px);
+}
+
+nav a.ativo {
+    color: #ffffff;
+
+    background: #0b5d91;
+
+    box-shadow:
+        0 5px 15px rgba(11, 93, 145, 0.30);
+}
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 550px;
+    height: 550px;
+
+    background: #0b4f82;
+
+    border-radius: 50%;
+
+    filter: blur(140px);
+
+    opacity: 0.25;
+
+    top: -250px;
+    right: -180px;
+
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    background: #08365c;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    opacity: 0.18;
+
+    bottom: -200px;
+    left: -150px;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+h1 {
+    text-align: center;
+
+    font-size: 34px;
+
+    color: #ffffff;
+
+    margin-top: 20px;
+
+    margin-bottom: 12px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   LINHA DECORATIVA
+========================================= */
+
+hr {
+    border: none;
+
+    height: 2px;
+
+    width: 100%;
+
+    margin: 0 auto 35px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #0b5d91,
+        #1683c7,
+        #0b5d91,
+        transparent
+    );
+}
+
+
+/* =========================================
+   TABELA
+========================================= */
+
+table {
+    width: 95%;
+
+    margin: auto;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    background: #081c30;
+
+    border: 1px solid #0d3554;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.40),
+        0 0 30px rgba(22, 131, 199, 0.08);
+}
+
+
+/* =========================================
+   CABEÇALHO DA TABELA
+========================================= */
+
+th {
+    background: #041525;
+
+    color: #8bd3ff;
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    border-bottom: 1px solid #0d3554;
+}
+
+
+/* PRIMEIRO CABEÇALHO */
+
+th:first-child {
+    border-top-left-radius: 12px;
+}
+
+
+/* ÚLTIMO CABEÇALHO */
+
+th:last-child {
+    border-top-right-radius: 12px;
+}
+
+
+/* =========================================
+   CÉLULAS
+========================================= */
+
+td {
+    padding: 17px;
+
+    color: #c2d3df;
+
+    border-bottom: 1px solid #0d2b45;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+
+/* =========================================
+   EFEITO NAS LINHAS
+========================================= */
+
+tr {
+    transition: all 0.25s ease;
+}
+
+tbody tr:hover td {
+    background: #0b2942;
+}
+
+
+/* DETALHE AZUL NA LINHA */
+
+tbody tr:hover td:first-child {
+    box-shadow: inset 3px 0 0 #1683c7;
+}
+
+
+/* =========================================
+   ÚLTIMA LINHA
+========================================= */
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   BOTÕES ATIVAR / DESATIVAR
+========================================= */
+
+td a {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 105px;
+
+    padding: 10px 16px;
+
+    background: #0b5d91;
+
+    color: #ffffff !important;
+
+    border: 1px solid #126b9f;
+
+    border-radius: 9px;
+
+    text-decoration: none !important;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    box-shadow:
+        0 5px 15px rgba(11, 93, 145, 0.25);
+}
+
+
+/* =========================================
+   PASSAR O MOUSE
+========================================= */
+
+td a:hover {
+    background: #0d75b5;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(13, 117, 181, 0.35);
+}
+
+
+/* =========================================
+   QUANDO CLICAR
+========================================= */
+
+td a:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 3px 8px rgba(11, 93, 145, 0.25);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    table {
+        width: 100%;
+
+        min-width: 800px;
+    }
+
+    body {
+        overflow-x: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    hr {
+        margin-bottom: 25px;
+    }
+
+    th,
+    td {
+        padding: 13px;
+    }
+}

@@ -1,0 +1,1190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Empréstimos - Biblioteca</title>
+
+    <link rel="stylesheet" href="{% static 'css/emprestimos.css' %}">
+</head>
+
+<body>
+
+<!-- =========================================
+     CABEÇALHO
+========================================= -->
+
+<header>
+
+    <div class="logo">
+        📚 Biblioteca
+    </div>
+
+    <nav>
+
+        <a href="{% url 'index' %}">
+            Início
+        </a>
+
+        <a href="/usuarios/">
+            Usuários
+        </a>
+
+        <a href="/livros/">
+            Livros
+        </a>
+
+        <a href="/emprestimos/" class="ativo">
+            Empréstimos
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================
+     CONTEÚDO PRINCIPAL
+========================================= -->
+
+<main>
+
+    <section class="titulo">
+
+        <h1>
+            Empréstimos
+        </h1>
+
+        <p>
+            Controle dos livros emprestados na biblioteca.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         TABELA
+    ========================================= -->
+
+    <section class="card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Livro</th>
+
+                    <th>Usuário</th>
+
+                    <th>Data de retirada</th>
+
+                    <th>Data de devolução</th>
+
+                    <th>Status</th>
+
+                    <th>Observação</th>
+
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for emprestimo in emprestimos %}
+
+                <tr>
+
+                    <!-- LIVRO -->
+
+                    <td>
+                        {{ emprestimo.livro.titulo }}
+                    </td>
+
+
+                    <!-- USUÁRIO -->
+
+                    <td>
+                        {{ emprestimo.usuario }}
+                    </td>
+
+
+                    <!-- DATA DE RETIRADA -->
+
+                    <td>
+                        {{ emprestimo.data_retirada|date:"d/m/Y" }}
+                    </td>
+
+
+                    <!-- DATA DE DEVOLUÇÃO -->
+
+                    <td>
+
+                        {% if emprestimo.data_devolucao %}
+
+                            {{ emprestimo.data_devolucao|date:"d/m/Y" }}
+
+                        {% else %}
+
+                            <span>
+                                Não devolvido
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- STATUS -->
+
+                    <td>
+
+                        {% if emprestimo.status == "emprestado" %}
+
+                            <span class="status emprestado">
+                                Emprestado
+                            </span>
+
+                        {% elif emprestimo.status == "devolvido" %}
+
+                            <span class="status devolvido">
+                                Devolvido
+                            </span>
+
+                        {% elif emprestimo.status == "atrasado" %}
+
+                            <span class="status atrasado">
+                                Atrasado
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- OBSERVAÇÃO -->
+
+                    <td>
+
+                        {% if emprestimo.observacao %}
+
+                            {{ emprestimo.observacao }}
+
+                        {% else %}
+
+                            <span>
+                                Sem observação
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    --
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    --
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    ---------------------------------------------------------
+                    <!-- AÇÕES -->
+
+                    <td class="acoes">
+
+                        {% if emprestimo.status != "devolvido" %}
+
+                            <a
+                                href="{% url 'devolver_emprestimo' emprestimo.id %}"
+                                class="btn devolver"
+                                onclick="return confirm('Deseja realmente devolver este livro?');">
+
+                                ↩ Devolver
+
+                            </a>
+
+                        {% else %}
+
+                            <span class="btn concluido">
+                                ✓ Devolvido
+                            </span>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'excluir_emprestimo' emprestimo.id %}"
+                            class="btn excluir"
+                            onclick="return confirm('Deseja realmente excluir este empréstimo?');">
+
+                            🗑 Excluir
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="7" class="vazio">
+
+                        Nenhum empréstimo cadastrado.
+
+                    <                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          /td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     RODAPÉ
+========================================= -->
+
+<footer>
+
+    <p>
+        Sistema de Biblioteca © 2026
+    </p>
+
+</footer>0  
+
+</body>
+
+</html>
